@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  camera:
+     image: benchpilot/raspbian-picamera2:latest
+     volumes:
+        - /run/udev:/run/udev
+        - ./:/app # remove this volume if you don't want to retrieve the captured images
+     privileged: true
+     devices:
+        - "/dev/vchiq:/dev/vchiq"
+     command: "sleep infinity"
